@@ -10,6 +10,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import static com.tinysun.secretlottosix.DummyData.PREVIOUS_ROUNDS;
+import static com.tinysun.secretlottosix.DummyData.PREVIOUS_WINNING_NUM_LIST;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
@@ -61,6 +66,23 @@ public class MainActivity extends AppCompatActivity {
 
         //Used to select an item programmatically
         //bottomNavigationView.getMenu().getItem(2).setChecked(true);
+
+
+        // 더미 데이터 입력
+        setDummyData();
+    }
+
+    public void setDummyData(){
+        PREVIOUS_ROUNDS = 1256;
+
+        PREVIOUS_WINNING_NUM_LIST = new ArrayList<>();
+        PREVIOUS_WINNING_NUM_LIST.add(0, 2);
+        PREVIOUS_WINNING_NUM_LIST.add(1, 5);
+        PREVIOUS_WINNING_NUM_LIST.add(2, 16);
+        PREVIOUS_WINNING_NUM_LIST.add(3, 32);
+        PREVIOUS_WINNING_NUM_LIST.add(4, 35);
+        PREVIOUS_WINNING_NUM_LIST.add(5, 41);
+        //PREVIOUS_WINNING_NUM_LIST.add(6, 25); // 보너스 번호
     }
 
 }

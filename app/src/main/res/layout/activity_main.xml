@@ -25,7 +25,7 @@
             app:contentInsetLeft="0dp"
             app:contentInsetRight="0dp"
             app:contentInsetStart="0dp"
-            app:logo="@mipmap/count_image_logo_white"
+            app:logo="@mipmap/logo_lotto_six_japan"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <RelativeLayout
