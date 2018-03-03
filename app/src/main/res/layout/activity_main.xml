@@ -8,6 +8,7 @@
     tools:context="com.tinysun.secretlottosix.MainActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/AppBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:theme="@style/ToolbarTheme">
@@ -16,16 +17,16 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:contentInsetLeft="0dp"
-            android:contentInsetStart="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp"
-            android:contentInsetRight="0dp"
             android:contentInsetEnd="0dp"
-            app:contentInsetRight="0dp"
+            android:contentInsetLeft="0dp"
+            android:contentInsetRight="0dp"
+            android:contentInsetStart="0dp"
             app:contentInsetEnd="0dp"
-            app:logo="@mipmap/count_image_logo_white">
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            app:logo="@mipmap/count_image_logo_white"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -39,10 +40,10 @@
                     android:layout_height="32dp"
                     android:layout_alignParentTop="true"
                     android:gravity="left|bottom"
+                    android:text="@string/app_name"
                     android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:text="@string/app_name"/>
+                    android:textStyle="bold" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -54,35 +55,25 @@
                         android:id="@+id/toolbar_save_title_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="11sp"
+                        android:gravity="left|top"
                         android:text="@string/menu_last_saved"
-                        android:gravity="left|top" />
+                        android:textSize="11sp" />
 
                     <TextView
                         android:id="@+id/toolbar_save_time_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="11sp"
-                        android:text=""
+                        android:layout_toRightOf="@+id/toolbar_save_title_tv"
                         android:gravity="left|top"
-                        android:layout_toRightOf="@+id/toolbar_save_title_tv"/>
+                        android:text=""
+                        android:textSize="11sp" />
 
                 </RelativeLayout>
             </RelativeLayout>
 
-
-
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
-
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/navigation"
-        android:animateLayoutChanges="true">
-    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -95,5 +86,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="368dp"
+        android:layout_height="0dp"
+        android:layout_above="@+id/navigation"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AppBar"></FrameLayout>
 
 </android.support.constraint.ConstraintLayout>
