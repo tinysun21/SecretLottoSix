@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">SecretLottoSix</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <!-- Menu -->
+    <string name="menu_save">Save</string>
+    <string name="menu_restore">Restore</string>
+    <string name="menu_delete_all">Delete All</string>
+    <string name="menu_language">Language</string>
+    <string name="menu_last_saved">Saved: </string>
+
+    <!-- Navigation Bottom -->
+    <string name="navigation_generate">Generate</string>
+    <string name="navigation_purchase">Purchase</string>
+    <string name="navigation_history">History</string>
+
+    <!-- POPUP -->
+    <string name="custom_generate_number_dialog_et_hint">Please input the title.</string>
+
 </resources>

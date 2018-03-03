@@ -10,10 +10,10 @@ import android.view.ViewGroup;
  * Created by cys on 2018. 1. 27..
  */
 
-public class FragmentMain extends Fragment {
+public class FragmentGenerate extends Fragment {
 
-    public static FragmentMain newInstance() {
-        FragmentMain fragment = new FragmentMain();
+    public static FragmentGenerate newInstance() {
+        FragmentGenerate fragment = new FragmentGenerate();
         return fragment;
     }
 
@@ -25,7 +25,7 @@ public class FragmentMain extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(R.layout.fragment_generate, container, false);
     }
 
 }

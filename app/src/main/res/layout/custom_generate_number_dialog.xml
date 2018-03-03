@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <RelativeLayout
+            android:id="@+id/custom_generate_number_dialog_content_rl"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            >
+
+            <EditText
+                android:id="@+id/custom_generate_number_dialog_et"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="top"
+                android:background="@drawable/layout_bg_round"
+                android:padding="12dp"
+                android:hint="@string/custom_generate_number_dialog_et_hint"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/custom_generate_number_dialog_content_rl"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/custom_generate_number_dialog_create_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="right|center_vertical"
+                android:text="CREATE"
+                android:textColor="@android:color/holo_red_light"
+                android:background="@drawable/custom_dialog_text_btn"/>
+
+            <Button
+                android:id="@+id/custom_generate_number_dialog_cancle_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:gravity="left|center_vertical"
+                android:text="CANCEL"
+                android:textColor="@android:color/holo_red_light"
+                android:background="@drawable/custom_dialog_text_btn"/>
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
