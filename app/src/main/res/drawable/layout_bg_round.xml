@@ -6,13 +6,13 @@
         android:color="@color/custom_gray_light"
         />
 
-    <corners android:radius="8dp" />
+    <corners android:radius="4dp" />
 
     <padding
-        android:left="20dp"
-        android:top="10dp"
-        android:right="20dp"
-        android:bottom="20dp"    >
+        android:left="2dp"
+        android:top="2dp"
+        android:right="2dp"
+        android:bottom="2dp"    >
     </padding>
 
 </shape>

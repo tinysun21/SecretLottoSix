@@ -14,6 +14,12 @@
     <string name="navigation_history">History</string>
 
     <!-- POPUP -->
-    <string name="custom_generate_number_dialog_et_hint">Please input the title.</string>
+    <string name="input_pre_win_num_popup_et_hint">Please input the previous lotto6 winning number.</string>
+    <string name="ok_btn">OK</string>
+    <string name="cancel_btn">Cancel</string>
+
+    <!-- etc. -->
+    <string name="previous_win_num">Previous Winning Number</string>
+    <string name="no_input_num_error">Please input the previous lotto6 winning number.</string>
 
 </resources>

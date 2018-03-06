@@ -1,5 +1,6 @@
 package com.tinysun.secretlottosix;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -23,7 +24,8 @@ import static com.tinysun.secretlottosix.CommonEnum.LOG_PREFIX;
 import static com.tinysun.secretlottosix.CommonEnum.MAX_NUM_OF_LOTTO_SIX;
 import static com.tinysun.secretlottosix.CommonEnum.MIN_NUM_OF_LOTTO_SIX;
 import static com.tinysun.secretlottosix.CommonEnum.TOTAL_NUM_OF_LOTTO_SIX;
-import static com.tinysun.secretlottosix.DummyData.PREVIOUS_WINNING_NUM_LIST;
+import static com.tinysun.secretlottosix.CommonEnum.PREVIOUS_ROUNDS;
+import static com.tinysun.secretlottosix.CommonEnum.PREVIOUS_WINNING_NUM_LIST;
 
 /**
  * Created by cys on 2018. 1. 27..
@@ -36,8 +38,11 @@ public class FragmentGenerate extends Fragment {
     @BindView(R.id.generate_btn)
     Button generateBtn;
 
-    @BindView(R.id.generate_num_tv)
-    TextView generateNumTv;
+    @BindView(R.id.tv_generated_new_num)
+    TextView generateNewNumTv;
+
+    @BindView(R.id.tv_previous_win_num)
+    TextView preWinNumTv;
 
     public static FragmentGenerate newInstance() {
         FragmentGenerate fragment = new FragmentGenerate();
@@ -62,6 +67,33 @@ public class FragmentGenerate extends Fragment {
     @OnClick(R.id.generate_btn)
     public void onButtonClick(View view) {
 
+        String preWinNumStr = preWinNumTv.getText().toString();
+
+        if( PREVIOUS_WINNING_NUM_LIST == null || PREVIOUS_WINNING_NUM_LIST.isEmpty() || PREVIOUS_WINNING_NUM_LIST.size() != 6 || preWinNumStr.isEmpty()){
+
+            final CustomInputPreWinNumDialog createDialog = new CustomInputPreWinNumDialog(getActivity());
+            createDialog.show();
+
+            createDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+
+                    if(!createDialog.isCancel()){
+                        ArrayList<Integer> inputNumList = createDialog.getInputNum();
+                        if(inputNumList.isEmpty() || inputNumList.size() != 6){
+                            Toast.makeText(getActivity(), R.string.no_input_num_error, Toast.LENGTH_LONG).show();
+                        }else{
+                            setPreWinNumToTv(inputNumList);
+                        }
+                    }
+
+                }
+            });
+
+            return;
+        }
+
+
         ArrayList<Integer> generatedNum = getLottoSixNumber();
         String strGeneratedNum = "";
         for (int i = 0; i < generatedNum.size(); i++) {
@@ -73,7 +105,7 @@ public class FragmentGenerate extends Fragment {
 
         }
 
-        generateNumTv.setText(strGeneratedNum);
+        generateNewNumTv.setText(strGeneratedNum);
 
     }
 
@@ -153,7 +185,44 @@ public class FragmentGenerate extends Fragment {
     }
 
 
+    private void setPreWinNumToTv(ArrayList<Integer> _inputNumList){
 
+        if( _inputNumList == null || _inputNumList.isEmpty() || _inputNumList.size() !=6 ){
+            Toast.makeText(getActivity(), R.string.no_input_num_error, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        setPreWinNumData(_inputNumList);
+
+        String inputNumStr = "";
+        for (int i = 0; i < _inputNumList.size(); i++) {
+            String targetStr = _inputNumList.get(i).toString();
+            int num = _inputNumList.get(i);
+            if(num < 10){
+                targetStr = "0"+targetStr;
+            }
+
+            if( i == (_inputNumList.size()-1)  ){
+                inputNumStr += targetStr;
+            }else{
+                inputNumStr += targetStr + ", ";
+            }
+        }
+
+        preWinNumTv.setText(inputNumStr);
+
+    }
+
+    public void setPreWinNumData(ArrayList<Integer> _inputNumList){
+        //PREVIOUS_ROUNDS = 1256;
+
+        if(PREVIOUS_WINNING_NUM_LIST != null){ PREVIOUS_WINNING_NUM_LIST.clear(); }
+
+        PREVIOUS_WINNING_NUM_LIST = new ArrayList<>();
+        for (int i = 0; i < _inputNumList.size() ; i++) {
+            PREVIOUS_WINNING_NUM_LIST.add(i, _inputNumList.get(i));
+        }
+    }
 
     @Override public void onDestroyView() {
         super.onDestroyView();

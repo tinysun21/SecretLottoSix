@@ -9,7 +9,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
-        android:id="@+id/generate_top_view"
+        android:id="@+id/rl_generate_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -20,19 +20,57 @@
             android:layout_centerHorizontal="true"
             android:text="Generate"/>
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_generate_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_generate_1">
+
         <TextView
-            android:id="@+id/generate_num_tv"
+            android:id="@+id/tv_generated_new_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="@color/holo_red_light"
-            android:layout_below="@+id/generate_btn"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"/>
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/rl_generate_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_generate_2">
+
+        <TextView
+            android:id="@+id/tv_previous_win_num_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/previous_win_num"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_previous_win_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tv_previous_win_num_title"/>
+
+    </RelativeLayout>
+    <!--
     <android.support.v7.widget.RecyclerView
         android:id="@+id/generate_recycler_view"
         android:layout_width="match_parent"
@@ -43,4 +81,5 @@
         android:layout_below="@+id/generate_top_view"
         android:layout_marginTop="30dp"/>
 
+    -->
 </RelativeLayout>

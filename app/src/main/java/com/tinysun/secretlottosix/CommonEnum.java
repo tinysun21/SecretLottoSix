@@ -1,5 +1,7 @@
 package com.tinysun.secretlottosix;
 
+import java.util.ArrayList;
+
 /**
  * Created by YS CHOI on 2018-01-01.
  */
@@ -11,10 +13,8 @@ public class CommonEnum {
     public static final int MIN_NUM_OF_LOTTO_SIX = 1;
     public static final int MAX_NUM_OF_LOTTO_SIX = 43;
 
-    public static final int GET_REALM_DATA_INITIAL = 0;
-    public static final int GET_REALM_DATA_SAVE = 1;
-    public static final int GET_REALM_DATA_RESTORE = 2;
-
+    public static int PREVIOUS_ROUNDS;
+    public static ArrayList<Integer> PREVIOUS_WINNING_NUM_LIST;
 
     // 카운트 최대값
     public enum CountMaxValue{
